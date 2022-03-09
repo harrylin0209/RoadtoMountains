@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device width, initial-scale=1"/>
+    <title>Road to Mountains</title>
+    <link rel="stylesheet" type="text/css" href="Bootstrap/css/bootstrap.min.css"/>
+    <script src="Bootstrap/js/popper.min.js"></script>
+    <script src="Bootstrap/js/bootstrap.min.js"></script>
+    <script src="jQuery/jquery.min.js" charset="utf-8"></script>
+    <script>
+        $(document).ready(function(){
+        });
+    </script>
+    
+    <style>
+        /* Block Margin Setting */
+        .margin-largest{margin-top:120px;margin-bottom:120px}
+        
+        /* Font Sizes */
+        h1{font-size:4.5rem;}
+        h2{font-size:3rem;}
+        h3{font-size:2rem;}
+        h4{font-size:1.5rem;}
+        p{font-size:1rem;}
+
+        /* Photo Sizes */
+        img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        /* Hover Effects */
+        .card, .item, img:hover{cursor:pointer;}
+        
+        .item{
+            position: relative;
+        }
+        .item .txt{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity .5s;
+        }
+        .item:hover .txt{
+            opacity: 1;
+        }
+        .item h2{
+            color: #ddd;
+        }
+
+        .moveup:hover{
+            transform:translateY(-3px);
+            transition:.2s;
+        }
+        
+        .mask{opacity:0;}
+        .shining:hover, .mask{
+            opacity:0.9;
+            transition:.2s;
+            cursor:pointer;
+        }
+
+        /* 此生必去 */
+        .mustgotxt{
+            background-color:#ccc;
+            padding:20px;
+        }
+
+        /* 野溪溫泉 */
+        #wildsprings p{
+            font-size:1.3em;
+        }
+
+        @media screen and (max-width:767px) {
+            /* Block Margin Setting */
+            .margin-largest{margin-top:80px;margin-bottom:80px}
+            
+            /* Font Sizes */
+            h1{font-size:2.8rem;}
+            h2{font-size:2.5rem;}
+            h3{font-size:1.22rem;}
+            h4{font-size:1.1rem;}
+            p{font-size:0.8rem;}            
+        }
+
+        @media screen and (min-width:768px) {
+            .block-txt{
+            margin-top:-100px;
+            }            
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Road to Mountains</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        登山行程
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#100peaks">百岳之行</a></li>
+                            <li><a class="dropdown-item" href="#mustgo">此生必去</a></li>
+                            <li><a class="dropdown-item" href="#midlevels">中級山精選</a></li>
+                            <li><a class="dropdown-item" href="#wildsprings">野溪溫泉</a></li>
+                            <li><a class="dropdown-item" href="#4seasonsviews">郊山美景</a></li>
+                            <li><a class="dropdown-item" href="#creatures">高山生物</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#overseas">海外攀登</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="tooltip" 
+                        data-bs-placement="right" title="Coming soon!">登山裝備&技術</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="tooltip" 
+                        data-bs-placement="right" title="Coming soon!">登山醫療&保健</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control form-control-sm me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-sm btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Carousel -->
+    <div id="carouselExampleCaptions" class="carousel slide mb-5" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/carousel1.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="img/carousel2.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="img/carousel3.jpg" class="d-block w-100">
+            </div>
+        </div>
+            
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+    <!-- 網站主旨 -->
+    <div class="container margin-largest">
+        <div class="row">
+            <div class="col-12 col-md-4" onclick="window.open('https://www.cw.com.tw/article/5090537?template=fashion');">
+                <img src="img/taiwanmountains.jpg" class="w-100">
+            </div>
+            <div class="col-12 col-md-8">
+                <h1 class="fw-bolder mb-1">現在就開始您的山旅程</h1>
+                <h3 class="fw-bolder mb-4">疫情肆虐國境封鎖，戶外活動已成為最熱門的選擇！</h3>
+                <h4>群山環繞的台灣，橫亙著3000公尺展望絕倫的大山百岳、<br/>
+                    清新脫俗的中級山岳以及四季之景變化萬千的郊山步道，<br/>
+                    現在就跟著我們的腳步，一起開拓您的行山旅途吧！
+                </h4>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 百岳之行 -->
+    <div id="100peaks" class="container margin-largest">
+        <h2 class="fw-bolder mb-3">百岳之行</h2>
+        <div class="row g-0">
+            <div class="col-md-6 order-md-2">                
+                <div class="row g-0">
+                    <div class="col-6 item" onclick="window.open('https://17jump.tw/qilai-nanhua-gogo/');">
+                        <div class="txt"><h2>奇萊南華</h2></div>
+                        <img src="img/奇萊南華.jpg" class="w-100">
+                    </div>
+                    <div class="col-6 item" onclick="window.open('https://hiking.biji.co/index.php?q=trail&act=detail&id=347');">
+                        <div class="txt"><h2>嘉明湖</h2></div>
+                        <img src="img/嘉明湖.jpg" class="w-100">
+                    </div>
+                    <div class="col-6 p-3">
+                        <h2 class="card-title fw-bold">入門百岳</h2>
+                        <p class="card-text">輕鬆低難度的新手百岳，可以輕裝當日來回或是兩天一夜山屋初體驗</p>
+                    </div>
+                    <div class="col-6 item" onclick="window.open('https://andyventure.com/taiwan-mountain-jyunda/');">
+                        <div class="txt"><h2>郡大西巒</h2></div>
+                        <img src="img/郡大西巒.jpg" class="w-100">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 item order-md-1" onclick="window.open('https://blog.xinmedia.com/article/185956');">
+                <div class="txt"><h2>合歡群峰</h2></div>
+                <img src="img/合歡群峰.jpg" class="w-100">
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-md-6">                
+                <div class="row g-0">
+                    <div class="col-6 p-3 order-md-2">
+                        <h2 class="card-title fw-bold">中階百岳</h2>
+                        <p class="card-text">稍有挑戰的中階百岳，豐富的地形景觀變化充實您2~3日的登山旅途</p>
+                    </div>
+                    <div class="col-6 item order-md-1" onclick="window.open('https://travel.yam.com/article/120396');">
+                        <div class="txt"><h2>北大武山</h2></div>
+                        <img src="img/北大武山.jpg" class="w-100">
+                    </div>
+                    <div class="col-6 item order-md-3" onclick="window.open('https://www.merit-times.com/NewsPage.aspx?unid=533563');">
+                        <div class="txt"><h2>畢羊縱走</h2></div>
+                        <img src="img/畢羊縱走.jpg" class="w-100">
+                    </div>
+                    <div class="col-6 item order-md-4" onclick="window.open('https://hiking.biji.co/index.php?q=review&act=info&review_id=3123');">
+                        <div class="txt"><h2>武陵四秀</h2></div>
+                        <img src="img/武陵四秀.jpg" class="w-100">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 item" onclick="window.open('https://www.flickr.com/photos/gundam-wei/38949078034/in/photostream/');">
+                <div class="txt"><h2>大霸群峰</h2></div>
+                <img src="img/大霸群峰.jpg" class="w-100">
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-md-6 order-md-2">                
+                <div class="row g-0">
+                    <div class="col-6 p-3 pb-2">
+                        <h2 class="card-title fw-bold">進階百岳</h2>
+                        <p class="card-text">重裝攀登數日的進階百岳，層層關卡考驗您的體能、經驗與意志力！</p>
+                    </div>
+                    <div class="col-6 item" onclick="window.open('https://today.line.me/tw/v2/article/ORgWey');">
+                        <div class="txt"><h2>奇萊主北</h2></div>
+                        <img src="img/奇萊主北.jpg" class="w-100">
+                    </div>
+                    <div class="col-6 item" onclick="window.open('https://blog.xuite.net/arlke/climbing/48401383');">
+                        <div class="txt"><h2>能高安東軍</h2></div>
+                        <img src="img/能高安東軍.jpg" class="w-100">
+                    </div>
+                    <div class="col-6 item" onclick="window.open('https://www.merit-times.com/NewsPage.aspx?unid=491614');">
+                        <div class="txt"><h2>中央尖山</h2></div>
+                        <img src="img/中央尖山.jpg" class="w-100">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 item order-md-1" onclick="window.open('https://www.taiwan368368.com.tw/products/mugo-bayu');">
+                <div class="txt"><h2>南湖群峰</h2></div>
+                <img src="img/南湖群峰.jpg" class="w-100">
+            </div>
+        </div>
+        <div class="row g-0 md-2">
+            <div class="col-6 col-md-3">
+                <div class="card-body p-0 item" onclick="window.open('https://udn.com/news/story/12395/5014167');">
+                    <div class="txt"><h2>干卓萬群峰</h2></div>
+                    <img src="img/干卓萬群峰.jpg" class="w-100">
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card-body p-0 item" onclick="window.open('https://www.hanchor.com/news/hanchor-trip-%E5%A5%87%E8%90%8A%E6%9D%B1%E7%A8%9C');">
+                    <div class="txt"><h2>奇萊東稜</h2></div>
+                    <img src="img/奇萊東稜.jpg" class="w-100">
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card-body p-0 item" onclick="window.open('https://www.keepon.com.tw/thread-1ceabf3f-186b-e911-80dd-901b0e54a4e6.html?AspxAutoDetectCookieSupport=1');">
+                    <div class="txt"><h2>馬博橫斷</h2></div>
+                    <img src="img/馬博橫斷.jpg" class="w-100">
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card-body p-0 item" onclick="window.open('https://impoca.com/south3/');">
+                    <div class="txt"><h2>南三段</h2></div>
+                    <img src="img/南三段.jpg" class="w-100">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 此生必去 -->
+    <div id="mustgo" class="container margin-largest">
+        <h2 class="fw-bolder mb-3">此生必去</h2>
+        <div class="row">
+            <div class="col-12 col-md-7">
+                <div class="pic shadow-lg" onclick="window.open('https://www.wilhelmchang.com/zh/taiwan-mt-jade-main-peak-north-peak/');">
+                    <img src="img/玉山.jpg" class="w-100 rounded-3">
+                </div>
+            </div>
+            <div class="col-12 col-md-7 offset-md-5 block-txt">
+                <div class="shadow-lg rounded-3 mustgotxt">
+                    <h2 class="fw-bolder">台灣之巔：玉山群峰</h2>
+                    <h3>玉山主峰</h3>
+                    <p>標高3952、全台最高峰，群山環繞眾星拱月</p> 
+                    <h3>玉山前五峰</h3>
+                    <p>前峰碎石障礙、西峰遼闊景觀、東峰陡峭挑戰膽識、北峰路遙考驗耐力</p> 
+                    <h3>玉山後四峰</h3>
+                    <p>路程遙遠艱難，十足考驗體能與決心，4天行程環繞玉山後四峰</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-7 offset-md-5 mt-5">
+                <div class="pic shadow-lg" onclick="window.open('https://travel.yam.com/article/120396');">
+                    <img src="img/雪山.jpg" class="w-100 rounded-3">
+                </div>
+            </div>
+            <div class="col-12 col-md-7 block-txt">
+                <div class="shadow-lg rounded-3 mustgotxt">
+                    <h2 class="fw-bolder">遺世冰河：雪山群峰</h2>
+                    <h3>雪山主峰</h3>
+                    <p>標高3886、全台次高峰，冰河圈谷深藏山中</p> 
+                    <h3>雪山北峰下翠池</h3>
+                    <p>雪山北峰視野遼闊、翠池清澈無暇隱世獨立</p>
+                    <h3>絕美聖稜線</h3>
+                    <p>雪山山脈的絕美稜線，串聯武陵四秀、雪山群峰及大霸群山</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 精選中級山 -->
+    <div id="midlevels" class="container margin-largest">
+        <h2 class="fw-bolder mb-3">精選中級山</h2>
+        <div class="row g-1">
+            <div class="col-12 col-lg-6">
+                <div class="card mb-3 shadow-sm moveup" style="max-width: 540px;">
+                    <div class="row g-0" onclick="window.open('https://gosunbody.com/hiking-jiali-mountain/');">
+                        <div class="col-4">
+                            <img src="img/加里山.jpg" class="w-100 horizontal-card-img">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h3 class="card-title fw-bold">加里山</h3>
+                                <p class="card-text">加里山：林相優美、地形變化豐富<br/>水雲三星：虎山、騰龍山、鳥嘴山</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card mb-3 shadow-sm moveup" style="max-width: 540px;">
+                    <div class="row g-0" onclick="window.open('https://colorfulbutterfly.net/2021/04/30/2021-04-03-%E8%B0%B7%E9%97%9C%E4%B8%83%E9%9B%84%EF%BC%9A%E9%A6%AC%E5%B4%99%E5%B1%B1-%F0%9F%A6%8B%E8%8A%B1%E8%9D%B4%E8%9D%B6%F0%9F%A6%8B/');">
+                        <div class="col-4">
+                            <img src="img/馬崙山.jpg" class="w-100 horizontal-card-img">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h3 class="card-title fw-bold">馬崙山</h3>
+                                <p class="card-text">谷關七雄：八仙山、馬崙山、屋我尾山、波津加山、東卯山、白毛山、唐麻丹山</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card mb-3 shadow-sm moveup" style="max-width: 540px;">
+                    <div class="row g-0" onclick="window.open('https://www.fun-easy-tw.com/product/%E4%B8%80%E6%97%A5%E7%99%BB%E5%B1%B1%E8%AA%B2%E7%A8%8B-%E9%AB%98%E5%B3%B6%E7%B8%B1%E8%B5%B0/');">
+                        <div class="col-4">
+                            <img src="img/高島縱走.jpg" class="w-100 horizontal-card-img">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h3 class="card-title fw-bold">高島縱走</h3>
+                                <p class="card-text">高台山縱走島田山，優美的松針林舒服好走，單攻或過夜野營皆適合！</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card mb-3 shadow-sm moveup" style="max-width: 540px;">
+                    <div class="row g-0" onclick="window.open('https://www.hanchor.com/news/hanchor-trip-%E7%BE%85%E9%A6%AC%E7%B8%B1%E8%B5%B0');">
+                        <div class="col-4">
+                            <img src="img/羅馬縱走.jpg" class="w-100 horizontal-card-img">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h3 class="card-title fw-bold">羅馬縱走</h3>
+                                <p class="card-text">羅葉尾山縱走馬武佐野郡山，遠眺雪山連峰與南湖群山，沿途大景連發驚呼不斷！</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card mb-3 shadow-sm moveup" style="max-width: 540px;">
+                    <div class="row g-0" onclick="window.open('https://ilisaliu.blogspot.com/2017/10/2017-10-08.html');">
+                        <div class="col-4">
+                            <img src="img/水社大山.jpg" class="w-100 horizontal-card-img">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h3 class="card-title fw-bold">水社大山</h3>
+                                <p class="card-text">明潭四秀之首，三千階梯與連續陡上的辛勞換來踞高俯視日月潭的美景</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card mb-3 shadow-sm moveup" style="max-width: 540px;">
+                    <div class="row g-0" onclick="window.open('https://mrpoken.com/qingshui/');">
+                        <div class="col-4">
+                            <img src="img/清水大山.jpg" class="w-100 horizontal-card-img">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h3 class="card-title fw-bold">清水大山</h3>
+                                <p class="card-text">砂卡礑三雄之首，拔地而起直達2000公尺，氣勢磅礡、視野通透！</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 野溪溫泉 -->
+    <div id="wildsprings" class="container margin-largest">
+        <h2 class="fw-bolder mb-3">野溪溫泉</h2>
+        <div class="row">
+            <div class="col-6 col-lg-2">
+                <div class="card shadow rounded-3 shining" onclick="window.open('https://tripmoment.com/Trip/19130');">
+                    <img src="img/下七股溫泉.jpg" class="d-block w-100">
+                    <div class="mask"> </div>
+                    <div class="card-body">
+                        <p class="card-title fw-bold text-center">下七股溫泉</p>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <div class="card shadow rounded-3 shining" onclick="window.open('https://bimeci.pixnet.net/blog/post/226820033');">
+                    <img src="img/精英雲海溫泉.jpg" class="d-block w-100">
+                    <div class="mask"> </div>
+                    <div class="card-body">
+                        <p class="card-title fw-bold text-center">精英雲海溫泉</p>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <div class="card shadow rounded-3 shining" onclick="window.open('https://chenwinter.com/shiling-hotspring/');">
+                    <img src="img/四稜溫泉.jpg" class="d-block w-100 h-75">
+                    <div class="mask"> </div>
+                    <div class="card-body">
+                        <p class="card-title fw-bold text-center">四稜瀑布溫泉</p>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <div class="card shadow rounded-3 shining" onclick="window.open('https://hiking.biji.co/index.php?q=news&act=info&id=2083');"> 
+                    <img src="img/栗松溫泉.jpg" class="d-block w-100">
+                    <div class="mask"> </div>
+                    <div class="card-body">
+                        <p class="card-title fw-bold text-center">栗松彩壁溫泉</p>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <div class="card shadow rounded-3 shining" onclick="window.open('https://melissalin510.pixnet.net/blog/post/320092010');">
+                    <div class="mask"> </div>
+                    <img src="img/萬榮溫泉.jpg" class="d-block w-100">
+                    <div class="card-body">
+                        <p class="card-title fw-bold text-center">萬榮洞穴溫泉</p>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <div class="card shadow rounded-3 shining" onclick="window.open('https://www.flickr.com/photos/gundam-wei/25626614298');">
+                    <div class="mask"> </div>
+                    <img src="img/十坑溫泉.jpg" class="d-block w-100">
+                    <div class="card-body">
+                        <p class="card-title fw-bold text-center">十坑彩壁溫泉</p>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 郊山美景 -->
+    <div id="4seasonsviews" class="container margin-largest">
+        <h2 class="fw-bolder mb-3">郊山美景</h2>
+        <div class="row g-0 m-1">
+            <div class="col-6 col-md-4 border border-4 border-dark item" 
+            onclick="window.open('https://hiking.biji.co/index.php?q=trail&act=detail&id=1511');">
+            <div class="txt"><h2>司馬庫斯<br/>魔法森林</h2></div>
+            <img src="img/司馬庫斯越嶺.jpg" class="w-100">
+            </div>
+            <div class="col-6 col-md-4 border border-4 border-dark item" 
+            onclick="window.open('https://hiking.biji.co/index.php?q=review&act=info&review_id=14496');">
+                <div class="txt"><h2>北得拉曼<br/>山毛櫸</h2></div>
+                <img src="img/北得拉曼.jpg" class="w-100">
+            </div>
+            <div class="col-6 col-md-4 border border-4 border-dark item" 
+            onclick="window.open('https://news.ltn.com.tw/news/local/paper/1254473');">
+                <div class="txt"><h2>馬那邦山<br/>　楓紅</h2></div>
+                <img src="img/馬那邦山.jpg" class="w-100">
+            </div>
+            <div class="col-6 col-md-4 border border-4 border-dark item" 
+            onclick="window.open('https://www.tripbaa.com/travel/20150601133427q8i/');">
+                <div class="txt"><h2>十七歲少女<br/>　松蘿湖</h2></div>
+                <img src="img/松蘿湖.jpg" class="w-100">           
+            </div>
+            <div class="col-6 col-md-4 border border-4 border-dark item" 
+            onclick="window.open('https://impoca.com/shuiyang-forest/');">
+                <div class="txt"><h2>　仙境<br/>水漾森林</h2></div>
+                <img src="img/水漾森林.jpg" class="w-100">
+            </div>
+            <div class="col-6 col-md-4 border border-4 border-dark item" 
+            onclick="window.open('https://www.backpackers.com.tw/forum/showthread.php?t=10400475');">
+                <div class="txt"><h2>鳶嘴山<br/>峭壁挑戰</h2></div>
+                <img src="img/鳶嘴山.jpg" class="w-100">
+            </div>
+            <div class="col-6 col-md-4 border border-4 border-dark item" 
+            onclick="window.open('https://travel.ettoday.net/article/1664129.htm');">
+                <div class="txt"><h2>聖母山莊<br/>抹茶山</h2></div>
+                <img src="img/抹茶山.jpg" class="w-100">
+            </div>
+            <div class="col-6 col-md-4 border border-4 border-dark item" 
+            onclick="window.open('https://www.ecotourtaiwan.com/huoyanshan/');">
+                <div class="txt"><h2>火炎山<br/>惡地地形</h2></div>
+                <img src="img/火炎山.jpg" class="w-100">
+            </div>
+            <div class="col-6 col-md-4 border border-4 border-dark item" 
+            onclick="window.open('https://www.backpackers.com.tw/forum/showthread.php?t=10457625');">
+                <div class="txt"><h2>眠月線<br/>鐵道健行</h2></div>
+                <img src="img/眠月線.jpg" class="w-100">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 高山生物 -->
+    <div id="creatures" class="container-fluid margin-largest ps-0 pe-0">
+        <div style="text-align:center;"><h2 class="fw-bolder mb-3">高山生物</h2></div>
+        <div class="row g-0">
+            <div class="col-4 col-md-2 item" onclick="window.open('https://tsbp.tgb.org.tw/2015/01/blog-post_40.html');">
+                <div class="txt"><h2>台灣水鹿</h2></div>
+                <img src="img/台灣水鹿.jpg" class="w-100">
+            </div>
+            <div class="col-4 col-md-2 item" onclick="window.open('https://e-info.org.tw/node/96992');">
+                <div class="txt"><h2>台灣黑熊</h2></div>
+                <img src="img/台灣黑熊.jpg" class="w-100">
+            </div>
+            <div class="col-4 col-md-2 item" onclick="window.open('https://www.merit-times.com/NewsPage2.aspx?unid=387767');">
+                <div class="txt"><h2>黑鬃山羊</h2></div>
+                <img src="img/黑鬃山羊.jpg" class="w-100">
+            </div>
+            <div class="col-4 col-md-2 item" onclick="window.open('https://www.novigo.com.tw/products/formosan-yellow-throated-marten-embroidered-patch');">
+                <div class="txt"><h2>黃喉貂</h2></div>
+                <img src="img/黃喉貂.jpg" class="w-100">
+            </div>
+            <div class="col-4 col-md-2 item" onclick="window.open('https://teia.tw/natural_valley_star/am2017-01-01/');">
+                <div class="txt"><h2>山羌</h2></div>
+                <img src="img/山羌.jpg" class="w-100">
+            </div>
+            <div class="col-4 col-md-2 item" onclick="window.open('https://www.ponews.net/nature/6wxqpeo4uh.html');">
+                <div class="txt"><h2>黃鼠狼</h2></div>
+                <img src="img/黃鼠狼.jpg" class="w-100">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 海外攀登 -->
+    <div id="overseas" class="container margin-largest">
+        <div style="text-align:center;"><h2 class="fw-bolder mb-3">海外攀登</h2></div>
+        <div class="row row-cols-2 g-2">
+            <div class="col">
+                <div class="card item" onclick="window.open('https://brianwu.blog/ebc15q/');">
+                    <div class="txt"><h2>EBC聖母峰基地營</h2></div>
+                    <img src="img/ebc.jpg" class="card-img-top">
+                </div>
+            </div>
+            <div class="col">
+                <div class="card item" onclick="window.open('https://www.shoppingdesign.com.tw/post/view/1079');">
+                    <div class="txt"><h2>PCT太平洋屋脊步道</h2></div>
+                    <img src="img/pct.jpg" class="card-img-top">
+                </div>
+            </div>
+            <div class="col">
+                <div class="card item" onclick="window.open('https://diarioprimeralinea.com.ar/mendoza-exigira-el-pase-sanitario-para-visitar-el-aconcagua/');">
+                    <div class="txt"><h2>Mt. Aconcagua</h2></div>
+                    <img src="img/aconcagua.jpg" class="card-img-top">
+                </div>
+            </div>
+            <div class="col">
+                <div class="card item" onclick="window.open('https://theworldtravelguy.com/roys-peak-new-zealand-epic-hike-in-wanaka-nz/');">
+                    <div class="txt"><h2>Roys Peak Track</h2></div>
+                    <img src="img/royspeak.jpg" class="card-img-top">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="container-fluid mt-5 px-5 py-3 text-light bg-dark">        
+        <div class="row">
+            <div class="col-12 col-lg-3 mb-3">
+                <p class="fw-bold">General Inquiries</p>
+                <a href="#">info@roadtomountains.com</a>
+            </div>
+            <div class="col-12 col-lg-3 mb-3">
+                <p class="fw-bold">Road to Mountains Global HQ</p>
+                <p>641 St. Zhong-Mei<br/>
+                    West Dist., Taichung City 403<br/>
+                    Taiwan
+                </p>
+            </div>
+            <div class="col-6">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-outline-light" type="button">Facebook</button>
+                    <button class="btn btn-outline-light" type="button">Instagram</button>
+                    <button class="btn btn-outline-light" type="button">Youtube</button>
+                    <button class="btn btn-outline-light" type="button">Twitter</button>
+                  </div>
+            </div>
+            <div class="col-12 border-top mt-4 pt-3 text-center" style="font-size:12px;">
+                All material herein &copy; 2022 Road to Mountains Co. All Rights Reserved.<br/>     
+            </div>
+        </div>        
+    </footer>
+</body>
+</html>
